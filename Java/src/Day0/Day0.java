@@ -7,6 +7,7 @@ public class Day0 {
      * Fecha publicación enunciado: 27/12/21
      * Fecha publicación resolución: 03/01/22
      * Dificultad: FÁCIL
+     * AUTOR: JENNIFER ZHAO JIN
      *
      * Enunciado: Escribe un programa que muestre por consola (con un print) los números de 1 a 100 (ambos incluidos y con un salto de línea entre cada impresión), sustituyendo los siguientes:
      * - Múltiplos de 3 por la palabra "fizz".
@@ -21,5 +22,27 @@ public class Day0 {
      *
      */
 
+    /*PLANTEAMIENTO
+    *   Se realiza un bucle para q vaya desde el 1-100,
+    *   comprobando si es divisible entre 5 y 3 ya que es la condición
+    *   más restrictiva, posteriormente pasamos a 5 y 3 y sino el nº
+    * */
 
+    public static void FizzBuzz(){
+        for (int i = 1; i <= 100; i++) {
+            if(i % 3 == 0 && i % 5 == 0){ //Tambien i % 15 == 0
+                System.out.println("FizzBuzz");
+            }else if(i % 3 == 0){
+                System.out.println("Fizz");
+            }else if(i % 5 == 0){
+                System.out.println("Buzz");
+            }else{
+                System.out.println(i);
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        FizzBuzz();
+    }
 }
