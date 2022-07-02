@@ -1,4 +1,4 @@
-package Day6;
+"""
 /*
  * Reto #6
  * INVIRTIENDO CADENAS
@@ -15,22 +15,14 @@ package Day6;
  * - Revisaré el ejercicio en directo desde Twitch el lunes siguiente al de su publicación.
  * - Subiré una posible solución al ejercicio el lunes siguiente al de su publicación.
  *
- * Probar loop al reves e ir añadiendo
  */
 
+"""
+def anagrama(word):
+    res = ""
+    for i in range(len(word)-1,-1,-1): #empieza desde atrás, hasta -1 para q incluya 0 y -1 para que vaya decreciendo  
+        res = res + word[i]
+        print(word[i])
+    return res
 
-public class Day6 {
-
-    public static String anagrama(String word){
-        String res = "";
-        int length = word.length();
-        for (int i = length-1; i >= 0; i--) {
-            res = res + word.charAt(i);
-        }
-        return res;
-    }
-
-    public static void main(String[] args) {
-        System.out.println(anagrama("Hello"));
-    }
-}
+print(anagrama("Hello"))
