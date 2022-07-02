@@ -32,5 +32,8 @@ public class Day6 {
 
     public static void main(String[] args) {
         System.out.println(anagrama("Hello"));
+        System.out.println(anagrama("anagrama"));
+        System.out.println(anagrama("Java"));
+        System.out.println(anagrama("amor"));
     }
 }
