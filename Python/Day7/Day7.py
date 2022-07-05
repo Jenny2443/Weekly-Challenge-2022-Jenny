@@ -19,3 +19,28 @@
  *
  */
 """
+
+def punctuation(word):
+    punctuation_chars = [".", ",", ":", ";", "!", "¡", "?", "¿", "(", ")", "{", "}", "[", "]", "-"]
+    new_word = ""
+    for char in word:
+        # Si el caracter en la frase se encuentra dentro del listado de puntuación, lo elimina
+         if char in punctuation_chars:
+             char = ""
+
+        # Concatena el caracter en un String.
+         new_word += char
+    return new_word.lower().split(" ")
+
+def countWords(s):
+    words = punctuation(s) # split string into list of words
+    res = {} # create empty dictionary
+    for word in words: 
+        if word in res: # if word is already in dictionary increment its value
+            res[word] += 1
+        else: # if word is not in dictionary add it with value 1
+            res[word] = 1
+    return res
+
+print(countWords("Hola mundo"))
+print(countWords("Y así como suele decirse el gato al rato, el rato a la cuerda, la cuerda al palo; daba el arriero a Sancho, Sancho a la moza, la moza a él, el ventero a la moza"))
