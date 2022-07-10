@@ -51,7 +51,7 @@ public class Day7 {
         s = s.toLowerCase();
         String[] array = s.replaceAll("[^a-zA-Z ]",
                 "").toLowerCase().split("\\s+");
-                //Arra dividido por espacios remplazando cualquier simbolo de puntuacion por vacio
+                //Array dividido por espacios remplazando cualquier simbolo de puntuacion por vacio
             for (int i = 0; i < array.length; i++) {
                 res = repWord(array[i],s);
                 System.out.println(array[i] + " " + res);
