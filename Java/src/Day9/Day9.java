@@ -30,12 +30,45 @@ public class Day9 {
             '5', '6', '7', '8', '9', '0'};
     private static String[] morseLetters = {".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--..","|","  "};
 
+    //Respetando espacios
     public static String morseToString(String morse){
         String res = "";
         String[] words = morse.split(" ");
         for (int i = 0; i < words.length; i++) {
-            System.out.println(words[i]);
-        }//Separo las letras
+            if(words[i].equals("")) {
+                res += " ";
+            }
+            for (int k = 0; k < morseLetters.length; k++) {
+                if(words[i].equals(morseLetters[k])){
+                    res += letters[k];
+                }
+            }
+        }
+        return res;
+    }
+
+    public static String stringToMorse(String string){
+        string = string.toLowerCase();
+        String res = "";
+        for (int i = 0; i < string.length(); i++) {
+            if(string.charAt(i) == ' ') { //Para espacio
+                res += "  ";
+            }
+            for (int j = 0; j < letters.length; j++) {
+                if(string.charAt(i) == letters[j]){
+                    res += morseLetters[j] + " ";
+                }
+            }
+        }
+        return res;
+    }
+
+
+    //Sirve para palabras sueltas, las frases no contienen espacios
+    public static String morseToString2(String morse){
+        String res = "";
+        String[] words = morse.split(" ");
+        //Separo las letras
         for (int i = 0; i < words.length; i++) {
             for (int j = 0; j < morseLetters.length; j++) {
                 if(words[i].equals("  ")){
@@ -50,29 +83,40 @@ public class Day9 {
         return res;
     }
 
-    public static String stringToMorse(String string){
-        string = string.toLowerCase();
+    /*public static void morseToString2(String m){
         String res = "";
-        for (int i = 0; i < string.length(); i++) {
-            for (int j = 0; j < letters.length; j++) {
-                if(string.charAt(i) == ' ') {
-                    res += "  ";
-                }else{
-                    if(string.charAt(i) == letters[j]){
-                        res += morseLetters[j] + " ";
-                    }
-                }
-            }
+        String cur = "";
+        String[] words1 = m.split("  ");
+        for (int i = 0; i < words1.length; i++) {
+            System.out.println(words1[i]);
         }
-        return res;
-    }
+        for (int i = 0; i < words1.length; i++) {
+            for (int j = 0; j < words1[i].length(); j++) {
+                if(words1[i].charAt(j) != ' ') {
+                    cur += words1[i].charAt(j);
+                }else{
+                    res += morseToString(cur);
+                    cur = "";
+                }
+                res += " ";
+            }
+            res += " ";
+        }
+        System.out.println(res);
+    }*/
+
 
     public static void main(String[] args) {
-        //System.out.println(morseToString("... -.-. .... --- --- .-.."));
         System.out.println(morseToString(".... . .-.. .-.. ---  .-- --- .-. .-.. -.."));
-        //System.out.println(stringToMorse("Alice"));
-        //System.out.println(stringToMorse("Hello World"));
-        //prueba(".... . .-.. .-.. ---  .-- --- .-. .-.. -..");
+        System.out.println(morseToString("-- .- -.. .-. .. -..  .. ...  .. -.  ... .--. .- .. -."));
+
+        System.out.println(morseToString2("... -.-. .... --- --- .-.."));
+        System.out.println(morseToString2("... .--. .- .. -."));
+
+        System.out.println(stringToMorse("Alice"));
+        System.out.println(stringToMorse("school"));
+        System.out.println(stringToMorse("Hello World"));
+
     }
     
 }
