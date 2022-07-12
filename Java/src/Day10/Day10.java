@@ -21,5 +21,49 @@ package Day10;
  */
 
 public class Day10 {
+    public static boolean parethesisClosed(String s){
+        int open = 0;
+        int closed = 0;
+        for (int i = 0; i < s.length(); i++) { //Conteo de abiertos y cerrados
+            if(s.charAt(i) == '('){
+                open++;
+            }else if(s.charAt(i) == ')'){
+                closed++;
+            }
+        }
+        return open == closed;
+    }
+
+    public static boolean bracesClosed(String s){
+        int open = 0;
+        int closed = 0;
+        for (int i = 0; i < s.length(); i++) {
+            if(s.charAt(i) == '{'){
+                open++;
+            }else if(s.charAt(i) == '}'){
+                closed++;
+            }
+        }
+        return open == closed;
+    }
+
+    public static boolean balanced(String s){
+        return parethesisClosed(s) && bracesClosed(s); //Se tienen q cumplir los 2
+    }
+
+
+    public static void main(String[] args) {
+        System.out.println(parethesisClosed("(fjskle)"));
+        System.out.println(parethesisClosed("(f(jsk)le)"));
+
+        System.out.println(bracesClosed("{}{dfds}"));
+        System.out.println(bracesClosed("{{dfds}"));
+        System.out.println(bracesClosed("{(}{dfds)}"));
+
+        System.out.println(balanced("(fjskle)"));
+        System.out.println(balanced("{dfds}"));
+        System.out.println(balanced("{(}{dfds)}"));
+
+    }
     
 }
