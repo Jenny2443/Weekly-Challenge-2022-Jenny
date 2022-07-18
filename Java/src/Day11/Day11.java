@@ -19,4 +19,74 @@ package Day11;
  */
 
 public class Day11 {
+    //Comprobar si el char esta en el str
+    public static boolean esta(String str,char c){
+        str = str.toLowerCase();
+        boolean esta = false;
+        int i = 0;
+        while(i < str.length() && !esta){
+            if(str.charAt(i) == c){
+                esta = true;
+            }else{
+                i++;
+            }
+        }
+        return esta;
+    }
+
+    //out1
+    public static String out1(String str1, String str2){
+        str1 = str1.toLowerCase();
+        str2 = str2.toLowerCase();
+        String out1 = "";
+        for (int i = 0; i < str1.length(); i++) {
+            if(!esta(str2,str1.charAt(i))){
+                out1 += str1.charAt(i);
+            }
+        }
+        return out1;
+    }
+
+    //out2
+    public static String out2(String str1, String str2){
+        str1 = str1.toLowerCase();
+        str2 = str2.toLowerCase();
+        String out2 = "";
+        for (int i = 0; i < str2.length(); i++) {
+            if(!esta(str1,str2.charAt(i))){
+                out2 += str2.charAt(i);
+            }
+        }
+        return out2;
+    }
+
+    //out1 y out2
+    public static void newString(String str1, String str2){
+        str1 = str1.toLowerCase();
+        str2 = str2.toLowerCase();
+        String out1 = out1(str1,str2);
+        String out2 = out2(str1,str2);
+        System.out.println("Out1: " + out1);
+        System.out.println("Out2: " + out2);
+    }
+
+
+    public static void main(String[] args) {
+        //TEST
+        System.out.println(out1("hola","olu")); //ha
+        System.out.println(out1("julio","sjfi")); //ulo
+        System.out.println(out1("Judia","Vuelo")); //jdia
+
+        System.out.println("---------");
+
+        System.out.println(out2("hola","olu")); //u
+        System.out.println(out2("julio","sjfi")); //sf
+        System.out.println(out2("Judia","Vuelo")); //velo
+
+        System.out.println("---------");
+
+        newString("hola","olu"); //ha, u
+        newString("julio","sjfi"); //ulo, sf
+        newString("Judia","Vuelo"); //jdia, velo
+    }
 }

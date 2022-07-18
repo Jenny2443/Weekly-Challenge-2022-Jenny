@@ -26,18 +26,18 @@ public class Day12 {
         int i = 0;
         int j = s.length() - 1;
         while(i <= j && is){
-            char getL = s.charAt(i);
-            char getJ = s.charAt(j);
+            char getL = s.charAt(i); //Primer char
+            char getJ = s.charAt(j); //Ultimo char
 
             //Por si hay simbolos ignorables
             if(!(getL >= 'a' && getJ <= 'z')){
                 i++;
             }else if(!(getJ >= 'a' && getL <= 'z')){
                 j--;
-            }else if(getL == getJ){
+            }else if(getL == getJ){ //= , paso siguiente
                 i++;
                 j--;
-            }else{
+            }else{ // distinto-> false
                 is = false;
             }
         }
@@ -46,8 +46,7 @@ public class Day12 {
 
     //OTRA
     //Uso de StringBuilder para dar vuelta al string y compararlos
-    static boolean palindrome2(String s){
-
+    public static boolean palindrome2(String s){
         if(s.isEmpty()) //Si vacio
             return true;
         String str = s.toLowerCase();
