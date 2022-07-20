@@ -5,4 +5,23 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
+  <component name="PyNamespacePackagesService">
+    <option name="namespacePackageFolders">
+      <list>
+        <option value="$MODULE_DIR$/Python/Day2" />
+        <option value="$MODULE_DIR$/Python/Day8" />
+        <option value="$MODULE_DIR$/Python/Day5" />
+        <option value="$MODULE_DIR$/Python/Day3" />
+        <option value="$MODULE_DIR$/Python/Day11" />
+        <option value="$MODULE_DIR$/Python/Day1" />
+        <option value="$MODULE_DIR$/Python/Day6" />
+        <option value="$MODULE_DIR$/Python/Day10" />
+        <option value="$MODULE_DIR$/Python/Day9" />
+        <option value="$MODULE_DIR$/Python/Day7" />
+        <option value="$MODULE_DIR$/Python/Day0" />
+        <option value="$MODULE_DIR$/Python/Day12" />
+        <option value="$MODULE_DIR$/Python/Day13" />
+      </list>
+    </option>
+  </component>
 </module>

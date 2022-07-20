@@ -34,7 +34,8 @@ public class Day14 {
         return n;
     }
 
-    public static int sum(int n) {
+    public static boolean isArmstrong(int n) {
+        int initNumber = n; //Guardamos el número inicial para poder volver a compararlo con el número final
         int num = expo(n);
         int sum = 0;
         while(n != 0){
@@ -42,12 +43,9 @@ public class Day14 {
             sum += Math.pow(r,num);
             n = n / 10;
         }
-        return sum;
+        return sum == initNumber;
     }
 
-    public static boolean isArmstrong(int n){
-       return sum(n) == n;
-    }
 
     /* public static int sum(int n){
         int num = n;
@@ -68,10 +66,10 @@ public class Day14 {
     }
 
     public static void main(String[] args) {
-        System.out.println(sum(371));
+       /* System.out.println(sum(371));
         System.out.println(sum(12));
         System.out.println(sum(1253));
-        System.out.println(sum(153));
+        System.out.println(sum(153));*/
 
         System.out.println(isArmstrong(371)); //T
         System.out.println(isArmstrong(12)); //F
