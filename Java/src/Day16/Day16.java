@@ -18,4 +18,20 @@ package Day16;
  *
  */
 public class Day16 {
+    public static String toUpper(String str){
+        String[] words = str.split(" "); //Separamos las palabras
+        StringBuilder sb = new StringBuilder(); //Creamos un StringBuilder para poder concatenar las palabras
+        for (String word : words) {
+            sb.append(word.substring(0, 1).toUpperCase()); //Concatenamos la primera letra de cada palabra en mayúscula
+            sb.append(word.substring(1)); //Concatenamos el resto de la palabra
+            sb.append(" "); //Añadimos un espacio para separar las palabras
+        }
+        return sb.toString();
+    }
+
+    public static void main(String[] args) {
+        //TEST
+        System.out.println(toUpper("hola mundo"));
+        System.out.println(toUpper("hola que tal"));
+    }
 }
