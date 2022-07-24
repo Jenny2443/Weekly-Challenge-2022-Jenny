@@ -33,5 +33,7 @@ public class Day16 {
         //TEST
         System.out.println(toUpper("hola mundo"));
         System.out.println(toUpper("hola que tal"));
+        System.out.println(toUpper("hello world"));
+        System.out.println(toUpper("hello my name is"));
     }
 }

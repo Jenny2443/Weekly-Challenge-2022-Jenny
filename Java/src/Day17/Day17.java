@@ -28,4 +28,42 @@ package Day17;
  */
 
 public class Day17 {
+    public static void completed(String[] actions, String track){
+        boolean complete = true;
+        String res = "";
+        int i = 0;
+        while(i < actions.length && complete){
+            if(actions[i].equals("jump") && track.charAt(i) != '|'){
+                res += "x";
+                complete = false;
+            }else if(actions[i].equals("run") && track.charAt(i) != '_'){
+                res += "/";
+                complete = false;
+            }else{
+                res += track.charAt(i);
+                i++;
+            }
+        }
+        System.out.println("Complete: " + complete);
+        System.out.println("Track: " + res);
+    }
+
+    public static void main(String[] args) {
+        //TEST
+        String[] action1 = {"jump","jump","run"};
+        String track1 = "_|_";
+        completed(action1,track1);
+
+        String[] action2 = {"jump","run","run"};
+        String track2 = "|__";
+        completed(action2,track2);
+
+        String[] action3 = {"run","run","run"};
+        String track3 = "__|";
+        completed(action3,track3);
+
+        String[] action4 = {"run","run","run","jump","run","jump"};
+        String track4 = "___|_|";
+        completed(action4,track4);
+    }
 }
