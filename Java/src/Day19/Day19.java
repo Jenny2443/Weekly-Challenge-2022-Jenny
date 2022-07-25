@@ -16,4 +16,24 @@ package Day19;
  *
  */
 public class Day19 {
+    /*
+    * 1 día tiene 86400000 milisegundos
+    * 1 hora tiene 3600000 milisegundos
+    * 1 minuto tiene 60000 milisegundos
+    * 1 segundo tiene 1000 milisegundos
+     * */
+    public static long toMilliseconds(int days, int hours, int minutes, int seconds) {
+        return (days * 86400 + hours * 3600 + minutes * 60 + seconds) * 1000;
+    }
+
+    public static void main(String[] args) {
+        //TEST
+        System.out.println(toMilliseconds(0, 0, 0, 0)); // 0
+        System.out.println(toMilliseconds(0, 0, 0, 1)); // 1000
+        System.out.println(toMilliseconds(0, 0, 1, 0)); // 60000
+        System.out.println(toMilliseconds(0, 1, 0, 0)); // 3600000
+        System.out.println(toMilliseconds(1, 0, 0, 0)); // 86400000
+        System.out.println(toMilliseconds(1, 1, 1, 1)); // 90061000
+        System.out.println(toMilliseconds(1, 2, 2, 1)); // 93721000
+    }
 }
