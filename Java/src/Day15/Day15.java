@@ -29,10 +29,33 @@ import java.util.Date;
  *
  */
 public class Day15 {
+    final static String FORMATO_FECHA = "dd/MM/yyyy";
+
+    //Check si la fecha es correcta según el patrón
+
+    public static boolean esFechaValida(String fecha) {
+        try {
+            LocalDate.parse(fecha, DateTimeFormatter.ofPattern(FORMATO_FECHA));
+            return true;
+        } catch (DateTimeParseException e) { //Error si no se puede transformar la fecha correctamente
+            return false;
+        }
+    }
+
+    public static void diasEntreFechas(String fecha1, String fecha2) throws ParseException {
+        if (!esFechaValida(fecha1) || !esFechaValida(fecha2)) { //Si alguna de las fechas no es válida lanza una excepción
+            throw new ParseException("Fecha inválida", 0);
+        }
+        LocalDate fecha1Local = LocalDate.parse(fecha1, DateTimeFormatter.ofPattern(FORMATO_FECHA)); //Convierte la fecha1 a LocalDate con el patrón de fecha
+        LocalDate fecha2Local = LocalDate.parse(fecha2, DateTimeFormatter.ofPattern(FORMATO_FECHA));
+        System.out.println(Math.abs(fecha1Local.until(fecha2Local, java.time.temporal.ChronoUnit.DAYS)));
+    }
 
 
-
-    public static void main(String[] args) {
-
+    public static void main(String[] args) throws ParseException {
+        diasEntreFechas("12/04/2020", "12/04/2020");
+        diasEntreFechas("12/03/2020", "12/04/2021");
+        diasEntreFechas("12/04/2021", "12/04/2022");
+        diasEntreFechas("12/04/2022", "15/04/2022");
     }
 }
